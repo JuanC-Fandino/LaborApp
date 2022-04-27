@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<head>
+    <title>Tracking report generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="../static/css/form_page.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="testbox">
+    <form action="#" method="POST">
+        <div class="banner">
+            <h1>Formato de Análisis Satelital</h1>
+        </div>
+        <div class="item">
+            <label for="guide">Guía transportadora:</label>
+            <input id="guide" name="guide" type="text"/>
+        </div>
+        <div class="item">
+            <label for="start">Origen:</label>
+            <input id="start" name="start" type="text"/>
+        </div>
+        <div class="item">
+            <label for="end">Destino:</label>
+            <input id="end" name="end" type="text"/>
+        </div>
+
+        <div class="item">
+            <label for="plate">Placa:<span>*</span></label>
+            <input pattern="[A-Za-z0-9]*" id="plate" name="plate" required type="text" placeholder="ABC123"/>
+        </div>
+
+        <div class="item">
+            <label for="company">Compañia de transporte:</label>
+            <input id="company" name="company" type="text" value="{{current_user.preferred_name | default('', true)}}"/>
+        </div>
+
+        <div class="item">
+            <label for="bdate">Fecha de inicio:<span>*</span></label>
+            <input id="bdate" name="bdate" required type="date"/>
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+
+        <div class="item">
+            <label for="initial"> Hora de inicio:<span>*</span></label>
+            <input id="initial" name="initial" required type="time"/>
+            <i class="fas fa-clock"></i>
+        </div>
+
+        <div class="item">
+            <label for="todate">Fecha final:<span>*</span></label>
+            <input id="todate" name="todate" required type="date"/>
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+
+        <div class="item">
+            <label for="final"> Hora final:<span>*</span></label>
+            <input id="final" name="final" required type="time"/>
+            <i class="fas fa-clock"></i>
+        </div>
+
+        <div class="item">
+            <label for="email">Email:<span>*</span></label>
+            <input id="email" name="email" required type="email"/>
+        </div>
+
+
+        <div class="question">
+            <label>Formato del reporte:<span style="color: red; margin-left:0">*</span></label>
+            <div class="question-answer">
+                <div>
+                    <input id="radio_1" name="option" required type="radio" value="2"/>
+                    <label class="radio" for="radio_1"><span>Impala</span></label>
+                </div>
+                <div>
+                    <input id="radio_2" name="option" type="radio" value="1"/>
+                    <label class="radio" for="radio_2"><span>Ecopetrol</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-block">
+            <button type="submit">ENVIAR</button>
+        </div>
+    </form>
+</div>
+</body>
+
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}

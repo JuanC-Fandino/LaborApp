@@ -1,0 +1,89 @@
+.container{
+    width: auto !important;
+}
+button:disabled{
+background-color:darkgray !important;
+color: lightgray !important;
+}
+@media (min-width: 992px){
+	.dropdown-menu .dropdown-toggle:after{
+		border-top: .3em solid transparent;
+	    border-right: 0;
+	    border-bottom: .3em solid transparent;
+	    border-left: .3em solid;
+	}
+	.dropdown-menu .dropdown-menu{
+		margin-left:0; margin-right: 0;
+	}
+	.dropdown-menu li{
+		position: relative;
+	}
+	.nav-item .submenu{
+		display: none;
+		position: absolute;
+		left:100%; top:-7px;
+	}
+	.nav-item .submenu-left{
+		right:100%; left:auto;
+	}
+	.dropdown-menu > li:hover{ background-color: #f1f1f1 }
+	.dropdown-menu > li:hover > .submenu{
+		display: block;
+	}
+}
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: indianred;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: indianred;
+  color: white;
+}
+
+.after-bar {
+	font-size: 14px;
+	padding-left: 1%;
+	padding-right: 1%;
+	overflow-x: hidden;
+}
+
+.dropdown-menu {
+    font-size: 14px;
+  }
+
+.modal-dialog{
+	font-size: 14px;
+}
+
+h4{
+	font-size: 18px !important;
+}
+.close{
+	font-size: 21px;
+}
+body{
+	font-family: Arial, sans-serif;
+	padding-right: 0px !important;
+}
+
+.negative_values{
+	color: red;
+}
+
+

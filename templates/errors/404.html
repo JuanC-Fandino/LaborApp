@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<head>
+    <link href="../../static/css/base_style.css" rel="stylesheet">
+</head>
+
+<div class="after-bar" style="text-align: center">
+    <h1>¡Página no encontrada!</h1>
+    <p><a href="{{ url_for('auth.login') }}">Volver...</a></p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}

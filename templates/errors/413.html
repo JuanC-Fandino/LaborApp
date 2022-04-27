@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<head>
+    <link href="../../static/css/base_style.css" rel="stylesheet">
+</head>
+
+<div class="after-bar" style="text-align: center">
+    <h1>El tamaño del archivo excede los limites (Máx 1mb)</h1>
+    <p>Intenta subir la foto nuevamente!</p>
+    <p><a href="{{ url_for('scheduler') }}">Regresar...</a></p>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}

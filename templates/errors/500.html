@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<head>
+    <link href="../../static/css/base_style.css" rel="stylesheet">
+</head>
+
+<div class="after-bar" style="text-align: center;">
+    <h1>¡Ups, algo salió mal!</h1>
+    <p>Por favor, intenta de nuevo más tarde.</p>
+    <p><a href="{{ url_for('auth.login') }}">Regresar...</a></p>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}

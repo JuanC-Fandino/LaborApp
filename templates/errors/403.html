@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<head>
+    <link href="../../static/css/base_style.css" rel="stylesheet">
+</head>
+
+<div class="after-bar" style="text-align: center">
+    <h1>¡Acceso denegado!</h1>
+    <p>El acceso a este recurso requiere privilegios especiales!</p>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}

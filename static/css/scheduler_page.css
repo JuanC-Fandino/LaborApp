@@ -1,0 +1,252 @@
+table {
+    width: 100%;
+    table-layout: auto;
+}
+
+table, td, th {
+    border-collapse: collapse;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+td, th {
+    padding: 8px 16px;
+    text-align: left;
+    width: max-content;
+    font-size: 1.2rem;
+}
+
+#t01 th:first-child{
+  border-radius:10px 0 0 10px;
+}
+
+#t01 th:last-child{
+  border-radius:0 10px 10px 0;
+}
+
+#t01 tr:nth-child(even) {
+    background-color: #66cc331a
+}
+
+#t01 tr:nth-child(odd) {
+    background-color: #fff
+}
+
+#t01 th {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    position: sticky;
+    top:0;
+    width: max-content;
+    white-space: nowrap;
+}
+
+#t01 th:hover {
+    background-color: green
+}
+
+#t01 tbody tr:hover {
+    background: #a3ffa5
+}
+
+select {
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    grid-column: 2/2
+}
+
+button {
+    padding: 10px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    background: #009102;
+    font-size: 16px;
+    cursor: pointer
+}
+
+button:hover {
+    background: green
+}
+
+.center {
+    text-align: center;
+    width: auto
+}
+
+.item span {
+    color: red
+}
+
+.myform form {
+    display: grid;
+    background: #fff;
+}
+
+.myform form p {
+    margin: 0
+}
+
+.myform img{
+    width:100%;
+    max-width:200px;
+}
+
+.myform form label {
+    width: 100%
+}
+
+.myform form input {
+    width: 100%
+}
+
+.myform form select {
+    width: 100%
+}
+
+.max_width {
+    width: 100%
+}
+
+.full-width {
+    grid-column: 1/3
+}
+
+.myform span {
+    color: red
+}
+
+.cancel {
+    background-color: indianred;
+}
+.cancel:hover{
+    background-color: #ff5c5c;
+}
+
+.special_header{
+    display: grid; grid-template-columns: auto auto;
+}
+
+.special_header button {
+    cursor: pointer;
+    font-size: medium;
+    margin-left: auto;
+    margin-right: 0;
+    height: min-content;
+}
+
+.special_header h1 {
+    margin-left: 20px;
+    margin-bottom: 20px
+}
+
+#search {
+    background-image: url(../searchicon.png);
+    background-size: 2%;
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px
+}
+
+.btn {
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: auto;
+}
+
+.tableFixHead {
+    overflow: auto;
+    height: 600px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px;
+}
+
+.table2 tr:nth-child(even) {
+    background-color: #66cc331a
+}
+
+.table2 tr:nth-child(odd) {
+    background-color: #fff
+}
+
+input:disabled {
+  background: lightgray;
+    color:gray;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid green;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ajax_form {
+    display: grid;
+    grid-gap: 2%;
+    grid-template-columns:50% 50%;
+    padding-right: 3%; padding-left: 1%;
+
+}
+
+.interactive_row{
+    cursor: pointer;
+}
+
+.delete_btn{
+    background-color: indianred;
+}
+
+.delete_btn:hover{
+    background-color: #ff5c5c;
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 90%;
+   max-width:900px;
+  }
+}
+
+ul.select2-results__options li{
+  font-size:13px;
+}
+
+.autoModal.modal .modal-body{
+    max-height: 100%;
+}
+
+.modalFooterButtons{
+    font-size: 1.2rem !important;
+}
