@@ -1,10 +1,12 @@
 # LABORAPP
 **DISEÑO Y DESARROLLO DE UNA APLICACIÓN WEB PARA LA VINCULACIÓN LABORAL**
 
-Juan Camilo Fandiño Orjuela
-Universidad EAN
-Facultad de Ingeniería
-Bases de Datos
+<img src="https://user-images.githubusercontent.com/17323717/165867245-4334e621-dec9-4f0d-b74d-dfd6e9dc9443.png" width="400">
+
+Juan Camilo Fandiño Orjuela \
+Universidad EAN \
+Facultad de Ingeniería \
+Bases de Datos 
 
 
 ### INTRODUCCIÓN
@@ -129,17 +131,26 @@ Python es un lenguaje de programación de alto nivel y su filosofía de diseño 
 
 Python es un lenguaje interpretado y a diferencia de los lenguajes compilados en los que el código debe traducirse a lenguaje de máquina para que el procesador lo ejecute, el código de Python se pasa directamente a un intérprete y se ejecuta directamente.
 
+ <img src="https://user-images.githubusercontent.com/17323717/165866320-cf21e8dd-8f1a-4c8b-99ac-4f2677fe68b5.png" width="300">
+ 
   2. **Flask**
 
 Flask es un pequeño y ligero framework de desarrollo web para Python que proporciona herramientas y funciones útiles que permiten que crear aplicaciones web en Python sea más fácil. Ofrece a los desarrolladores flexibilidad y una curva de aprendizaje corta permitiendo crear una aplicación web usando únicamente un archivo Python. Flask también es extensible y no fuerza una estructura de directorio concreta.
+
+ <img src="https://user-images.githubusercontent.com/17323717/165866326-bc09c4f3-f2a2-4860-a50a-0f05c3a5e768.png" width="300">
  
   3. **Jinja2**
 
 Flask utiliza el motor de plantillas Jinja2 para crear dinámicamente páginas HTML usando conceptos Python familiares como variables, bucles, listas, etcétera.
 
+![índice](https://user-images.githubusercontent.com/17323717/165866340-2a9d05ec-fa0f-4e8d-8b51-8f4c480203e0.png)
+
+
   4. **MySQL**
 
 MySQL es un sistema de gestión de bases de datos relacionaleS (RDBMS) de código abierto basado en el lenguaje de consulta estructurado (SQL). Aunque se puede utilizar para muchos propósitos, el desarrollo web es el ámbito en donde más se utiliza.
+
+ <img src="https://user-images.githubusercontent.com/17323717/165866348-6cc14729-781b-438b-956d-9f7736034b6e.png" width="300">
 
   5. **SQLAlchemy**
 
@@ -163,14 +174,14 @@ A continuación, se muestra el modelo entidad-relación planteado:
 
 Modelo entidad-relación
 
-![](RackMultipart20220427-1-ullrvr_html_71b3761cdf0a3893.png)
+
+![Imagen 1](https://user-images.githubusercontent.com/17323717/165865971-b21570ec-16f6-4ecc-92e0-5f89443c92ba.png)
+
 
 _Nota:_ El diagrama fue generado mediante la herramienta provista por DataGrip, las llaves primarias están indicadas de color dorado, mientras que las llaves foráneas están denotadas en color azul.
 
 ### METODOLOGÍA
 
 La metodología ágil que será utilizada en el presente proyecto será **Kanban.** Esta es una metodología de desarrollo de software incremental a diferencia de otras iterativas como Scrum. Kanban pretende que el software sea creado en un gran ciclo, no obstante, buscar dividir el desarrollo en diferentes tareas para posteriormente elaborar un cuadro o diagrama en el que se reflejará su estado, las columnas normalmente son: tareas pendientes, en proceso y terminadas. Para el desarrollo del presente proyecto Trello será la herramienta en donde se consignará el tablero.
-
-![](RackMultipart20220427-1-ullrvr_html_4daf9aa448292604.png)
 
 La elección de esta metodología se hizo teniendo en cuenta la fecha de entrega del proyecto, el tamaño del equipo (en este caso unipersonal), y las ventajas que presenta frente a una ejecución relativamente pequeña.
