@@ -29,21 +29,21 @@ h1 {
 }
 
 form {
-    width: 70%;
+    width: 50%;
     padding: 20px;
     border-radius: 6px;
     background: #fff;
-    box-shadow: 0 0 8px #6c3;
+    box-shadow: 0 0 8px #0d6987;
 }
 
-form .form-group input{
+form .form-group input {
     font-size: 14px;
 }
 
 .banner {
     position: relative;
-    height: 300px;
-    background-image: url("../wallpaper.jpg");
+    height: 200px;
+    background-image: url("../exp_aca.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -66,8 +66,12 @@ input, select, textarea {
 }
 
 input {
-    width: calc(100% - 10px);
     padding: 5px;
+}
+
+input[type="checkbox"] {
+    position: relative !important;
+    margin-left: unset !important;
 }
 
 input[type="date"] {
@@ -80,13 +84,13 @@ textarea {
 }
 
 .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
-    color: #009102;
+    color: #0d6987;
 }
 
 .item input:hover, .item select:hover, .item textarea:hover {
     border: 1px solid transparent;
-    box-shadow: 0 0 3px 0 #009102;
-    color: #009102;
+    box-shadow: 0 0 3px 0 #0d6987;
+    color: #0d6987;
 }
 
 .item {
@@ -105,7 +109,7 @@ input[type="date"]::-webkit-inner-spin-button {
 .item i, input[type="date"]::-webkit-calendar-picker-indicator {
     position: absolute;
     font-size: 20px;
-    color: #009102;
+    color: #0d6987;
 }
 
 .item i {
@@ -151,7 +155,7 @@ label.radio:before {
 }
 
 input[type=radio]:checked + label:before, label.radio:hover:before {
-    border: 2px solid #009102;
+    border: 2px solid #0d6987;
 }
 
 label.radio:after {
@@ -161,7 +165,7 @@ label.radio:after {
     left: 5px;
     width: 8px;
     height: 4px;
-    border: 3px solid #009102;
+    border: 3px solid #0d6987;
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
@@ -173,7 +177,11 @@ input[type=radio]:checked + label:after {
 }
 
 .btn-block {
-    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -182,22 +190,22 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background: #009102;
+    background: #0d6987;
     font-size: 16px;
     color: #fff;
     cursor: pointer;
 }
 
 button:hover {
-    background: green;
+    background: #0d6991;
 }
 
-.row label{
+.row label {
     padding-left: 0;
 }
 
-.btn-default{
-    background: #009102;
+.btn-default {
+    background: #0d6987;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -205,7 +213,27 @@ button:hover {
     cursor: pointer;
 }
 
-.btn-default:hover{
-    background: #016e03;
+.btn-default:hover {
+    background: #0d6991;
     color: white;
+}
+
+
+.btn-siguiente {
+    background: #dc8e00;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-siguiente:hover {
+    background: #ffa500;
+    color: white;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
 }

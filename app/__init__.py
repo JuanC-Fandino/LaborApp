@@ -18,7 +18,7 @@ bootstrap = Bootstrap()
 
 def create_app(config_class=Config):
 
-    app = Flask(__name__, template_folder='../templates')
+    app = Flask(__name__, template_folder='../templates', static_folder='../static')
     app.config.from_object(config_class)
     csrf.init_app(app)
     db.init_app(app)

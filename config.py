@@ -12,7 +12,7 @@ class Config(object):
     WTF_CSRF_ENABLED = False
     EXPLAIN_TEMPLATE_LOADING = True
     PERMANENT_SESSION_LIFETIME = timedelta(days=5)
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
     SQLALCHEMY_ENGINE_OPTIONS = {"pool_pre_ping": True}

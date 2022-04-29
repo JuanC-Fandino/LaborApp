@@ -35,4 +35,10 @@ def register():
 @bp.route("/", methods=["GET", "POST"])
 @login_required
 def landing():
-    return render_template("form.html", title="Reportes")
+    return render_template("form.html", title="Experiencia Académica")
+
+
+@bp.route("/candidates", methods=["GET", "POST"])
+@login_required
+def candidates():
+    return render_template("candidates_page.html", title="Candidatos")

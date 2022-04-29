@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <head>
+        <script crossorigin="anonymous" src="https://kit.fontawesome.com/e0682c6d8c.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+        <script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+        <link href="../static/css/scheduler_page.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="after-bar">
+        <div class="special_header">
+            <h1>Candidatos</h1>
+        </div>
+
+        <form action="#" method="POST" onkeydown="return event.key != 'Enter';"
+              onsubmit="return confirm('¿Está seguro que desea eliminar el registro?')">
+            <input id="search" onkeyup="searchFunction(this, 0)" placeholder="Buscar por nombre..." type="text">
+            <div class="tableFixHead">
+                <table id="t01">
+                    <thead>
+
+                    <tr style="font-size: 0.8vw">
+                        <th onclick="sortTable(this)">Nombre <i class="fas fa-sort fa-xs"></i></th>
+                        <th onclick="sortTable(this)">Idiomas <i class="fas fa-sort fa-xs"></i></th>
+                        <th onclick="sortTable(this)">Habilidades <i class="fas fa-sort fa-xs"></i></th>
+                        <th onclick="sortTable(this)">Experiencia Laboral <i class="fas fa-sort fa-xs"></i></th>
+                        <th onclick="sortTable(this)">Experiencia Académica <i class="fas fa-sort fa-xs"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr class="edit-route interactive_row" data-target="#editModal"
+                        data-toggle="modal">
+
+
+                        <td>Juan Camilo Fandiño</td>
+                        <td>Inglés</td>
+                        <td>Python, C#, Unity</td>
+                        <td>CODE Éxitos, GCT Satelital</td>
+                        <td>Ingeniería de Sonido, Ingeniería de Sistemas</td>
+
+
+                    </tr>
+
+                                        <tr class="edit-route interactive_row" data-target="#editModal"
+                        data-toggle="modal">
+
+
+                        <td>Daniel Fandiño</td>
+                        <td>Mandarín</td>
+                        <td>R, Excel</td>
+                        <td>Banco de la República</td>
+                        <td>Economía</td>
+
+
+                    </tr>
+
+                    </tr>
+
+                                        <tr class="edit-route interactive_row" data-target="#editModal"
+                        data-toggle="modal">
+
+
+                        <td>Antonio Fandiño</td>
+                        <td>Portugues</td>
+                        <td>C++</td>
+                        <td>Cisco</td>
+                        <td>Ingeniero Electrico</td>
+
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+    </body>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    function stop_event_propagation(that, event) {
+        event.stopPropagation();
+    }
+
+</script>
+
+<script>
+    let date = new Date();
+    document.getElementById("load_date").value = date.toLocaleDateString("fr-CA");
+    let hour = date.getHours(), min = date.getMinutes();
+    hour = (hour < 10 ? "0" : "") + hour;
+    min = (min < 10 ? "0" : "") + min;
+    document.getElementById('load_time').value = hour + ":" + min;
+</script>
+
+{% endblock %}
