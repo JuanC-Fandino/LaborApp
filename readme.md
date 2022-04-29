@@ -185,3 +185,13 @@ _Nota:_ El diagrama fue generado mediante la herramienta provista por DataGrip, 
 La metodología ágil que será utilizada en el presente proyecto será **Kanban.** Esta es una metodología de desarrollo de software incremental a diferencia de otras iterativas como Scrum. Kanban pretende que el software sea creado en un gran ciclo, no obstante, buscar dividir el desarrollo en diferentes tareas para posteriormente elaborar un cuadro o diagrama en el que se reflejará su estado, las columnas normalmente son: tareas pendientes, en proceso y terminadas. Para el desarrollo del presente proyecto Trello será la herramienta en donde se consignará el tablero.
 
 La elección de esta metodología se hizo teniendo en cuenta la fecha de entrega del proyecto, el tamaño del equipo (en este caso unipersonal), y las ventajas que presenta frente a una ejecución relativamente pequeña.
+
+### UI
+
+
+![Captura de Pantalla 2022-04-28 a la(s) 7 42 28 p  m](https://user-images.githubusercontent.com/17323717/165871915-d6342b39-fe94-4f34-b24a-cd006462cd34.png)
+
+
+![Captura de Pantalla 2022-04-28 a la(s) 8 07 15 p  m](https://user-images.githubusercontent.com/17323717/165871919-97505a7f-3832-4536-92a3-5e933c5d2e30.png)
+
+![Captura de Pantalla 2022-04-28 a la(s) 8 19 23 p  m](https://user-images.githubusercontent.com/17323717/165871922-dc526499-e1b7-451f-ad35-e558ba133ddc.png)
