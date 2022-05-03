@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <head>
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="../static/css/form_page.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="testbox">
+        <form action="#" method="POST">
+            <div class="banner">
+                <h1>Habilidades y Competencias</h1>
+            </div>
+            <div class="item">
+                <label for="skill_name">Nombre de la competencia:<span>*</span></label>
+                <input id="skill_name" name="skill_name" type="text"/>
+            </div>
+
+
+        </form>
+    </div>
+    </body>
+
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

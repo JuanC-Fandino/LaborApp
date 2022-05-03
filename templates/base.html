@@ -44,6 +44,8 @@
                 {% if current_user.is_anonymous %}
                     <li id="login" class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Iniciar
                         Sesión</a></li>
+                    <li id="signup" class="nav-item"><a class="nav-link" href="{{ url_for('auth.register') }}">Registrarse</a>
+                    </li>
                 {% else %}
                     <li id="logout" class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Cerrar
                         Sesión</a></li>
@@ -57,6 +59,17 @@
     {% if current_user.is_authenticated %}
     {% endif %}
     {# application content needs to be provided in the app_content block #}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div style="margin: 1%; font-size: 14px" class="alert alert-info alert-dismissible" role="alert">
+                    <a style="top: 0; right: 0" href="#" class="close" data-dismiss="alert"
+                       aria-label="close">&times;</a>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     {% block app_content %}{% endblock %}
 {% endblock %}
 

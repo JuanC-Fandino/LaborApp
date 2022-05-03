@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <head>
+        <title>Crear Usuario</title>
+        <script crossorigin="anonymous" src="https://kit.fontawesome.com/e0682c6d8c.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="../static/css/form_page.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="testbox">
+
+        <form action="#" method="POST"
+              onsubmit="return confirm('¿Está seguro de que la información ingresada es correcta?')">
+            <h3>Regístrate</h3>
+            <hr>
+
+            <div style="display: grid; grid-template-columns: 70% 30%; gap: 20px;">
+                <div>
+
+                    <div class="horizontal-item">
+                     <span>
+                         <label for=first_name>Nombre:</label>
+                         <input style="width: -moz-available !important;" type="text" name="first_name" id="first_name"
+                                required>
+                     </span>
+
+                        <span class="w-100">
+                        <label for=last_name>Apellido:</label>
+                        <input style="width: -moz-available !important;" type="text" name="last_name" id="last_name"
+                               required>
+                    </span>
+                    </div>
+
+                    <div class="item">
+                        <label for="email">Email:</label>
+                        <input id="email" name="email" required type="email"/>
+                    </div>
+
+                    <div class="item">
+                        <label for="phone">Teléfono:</label>
+                        <input id="phone" name="phone" required type="tel"/>
+                    </div>
+
+                    <div class="item">
+                        <label for="password">Contraseña:</label>
+                        <input id="password" name="password" required type="password"/>
+                    </div>
+
+                    <div class="item">
+                        <label for="password_confirm">Confirmar contraseña:</label>
+                        <input id="password_confirm" name="password_confirm" required type="password"/>
+                    </div>
+
+                    {#            <div class="question">#}
+                    {#                <label>Rol:<span style="color: red; margin-left:0">*</span></label>#}
+                    {#                <div class="question-answer">#}
+                    {#                    <div>#}
+                    {#                        <input id="radio_1" name="option" required type="radio" value="2"/>#}
+                    {#                        <label class="radio" for="radio_1"><span>Cliente</span></label>#}
+                    {#                    </div>#}
+                    {#                    <div>#}
+                    {#                        <input id="radio_2" name="option" type="radio" value="3"/>#}
+                    {#                        <label class="radio" for="radio_2"><span>Empresa Transportadora</span></label>#}
+                    {#                    </div>#}
+                    {#                </div>#}
+                    {#            </div>#}
+
+                </div>
+                <div class="imagen_logo" style="place-self: center">
+                    <img src="../static/LogoSolo.png" alt="user">
+                </div>
+            </div>
+
+            <hr>
+            <div class="btn-block">
+                <button class="btn-siguiente" type="submit">¡Regístrate ahora!</button>
+            </div>
+        </form>
+
+    </div>
+    </body>
+
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

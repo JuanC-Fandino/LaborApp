@@ -220,7 +220,7 @@ button:hover {
 
 
 .btn-siguiente {
-    background: #dc8e00;
+    background: rgba(255, 35, 31, 0.75);
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -229,11 +229,25 @@ button:hover {
 }
 
 .btn-siguiente:hover {
-    background: #ffa500;
+    background: #ff231f;
     color: white;
 }
 
 .item {
     display: flex;
     flex-direction: column;
+}
+
+.horizontal-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+
+.imagen_logo{
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }

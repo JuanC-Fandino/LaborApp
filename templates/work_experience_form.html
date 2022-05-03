@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <head>
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="../static/css/form_page.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="testbox">
+        <form action="#" method="POST">
+            <div class="banner">
+                <h1>Experiencia Laboral</h1>
+            </div>
+            <div class="item">
+                <label for="company_name">Nombre de la Empresa:<span>*</span></label>
+                <input id="company_name" name="company_name" type="text"/>
+            </div>
+            <div class="item">
+                <label for="job_title">Cargo:<span>*</span></label>
+                <input id="job_title" name="job_title" type="text"/>
+            </div>
+
+            <div class="item">
+                <label for="start_date">Fecha de inicio:</label>
+                <input id="start_date" name="start_date" required type="date"/>
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+
+            <div class="checkbox-inline pl-0">
+                <label for="currently_working">Esta trabajando actualmente?:</label>
+                <input id="currently_working" name="currently_working" type="checkbox"/>
+            </div>
+
+            <div id="end_date_container" class="item">
+                <label for="end_date">Fecha de finalización:</label>
+                <input id="end_date" name="end_date" type="date"/>
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+
+            <div class="btn-block">
+                <button type="submit">Añadir</button>
+                <button class="btn-siguiente">Siguiente</button>
+            </div>
+
+        </form>
+    </div>
+    </body>
+
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $(document).ready(function () {
+            $('#currently_working').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#end_date_container').hide();
+                } else {
+                    $('#end_date_container').show();
+                }
+            });
+        });
+    </script>
+{% endblock %}

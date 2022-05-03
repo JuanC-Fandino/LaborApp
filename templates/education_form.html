@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <head>
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="../static/css/form_page.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="testbox">
+        <form action="#" method="POST">
+            <div class="banner">
+                <h1>Experiencia Académica</h1>
+            </div>
+            <div class="item">
+                <label for="degree_name">Título Obtenido:<span>*</span></label>
+                <input id="degree_name" name="degree_name" type="text"/>
+            </div>
+            <div class="item">
+                <label for="university">Universidad:<span>*</span></label>
+                <input id="university" name="university" type="text"/>
+            </div>
+
+            <div class="checkbox-inline pl-0">
+                <label for="currently_enrolled">Esta estudiando actualmente?:</label>
+                <input id="currently_enrolled" name="currently_enrolled" type="checkbox"/>
+            </div>
+
+
+            <div class="item">
+                <label id="label_yg" for="year_of_graduation">Fecha de graduación:</label>
+                <input id="year_of_graduation" name="year_of_graduation" type="date"/>
+            </div>
+
+
+            <div class="btn-block">
+                <button type="submit">Añadir</button>
+                <button class="btn-siguiente">Siguiente</button>
+            </div>
+
+        </form>
+    </div>
+    </body>
+
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+    $(document).ready(function() {
+        $('#currently_enrolled').change(function() {
+            if (!$(this).is(':checked')) {
+                $('#year_of_graduation').show();
+                $('#label_yg').show();
+            } else {
+                $('#year_of_graduation').hide();
+                $('#label_yg').hide();
+            }
+        });
+    });
+    </script>
+{% endblock %}
