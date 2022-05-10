@@ -47,6 +47,21 @@
                     <li id="signup" class="nav-item"><a class="nav-link" href="{{ url_for('auth.register') }}">Registrarse</a>
                     </li>
                 {% else %}
+                    {% if current_user.roles[0].name == 'candidate' %}
+                        <li id="sections" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Secciones</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ url_for('main.education') }}">Educación</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('main.work_experience') }}">Experiencia
+                                    Laboral</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('main.skills') }}">Habilidades</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('main.languages') }}">Idiomas</a></li>
+                            </ul>
+                        </li>
+                        <li id="job_interests" class="nav-item"><a class="nav-link"
+                                                                   href="{{ url_for('main.job_interest') }}">Intereses</a>
+                        </li>
+                    {% endif %}
                     <li id="logout" class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Cerrar
                         Sesión</a></li>
                 {% endif %}

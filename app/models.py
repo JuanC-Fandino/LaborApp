@@ -8,7 +8,6 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    roles = db.relationship('Role', secondary='user_roles')
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
     phone = db.Column(db.String(64))
@@ -17,7 +16,7 @@ class User(UserMixin, db.Model):
     candidate = db.relationship('Candidate', uselist=False, backref='user', passive_deletes=True)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '{} {}'.format(self.first_name, self.last_name)
 
     def allowed(self, access_level):
         for role in self.roles:

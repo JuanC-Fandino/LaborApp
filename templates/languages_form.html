@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <head>
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="../static/css/form_page.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="testbox">
+        <form action="#" method="POST">
+             <div class="container-x">
+                <h1 class="centered">Idiomas</h1>
+            <img src="https://ichef.bbci.co.uk/news/800/cpsprodpb/ACFF/production/_116778244_gettyimages-905514896.jpg" alt="Logo" class="logo" style="width: 100%; height: 250px; object-fit: cover"/>
+            </div>
+            <div class="item">
+                <label for="language_name">Idioma:<span>*</span></label>
+                <input type="text" name="language_name" id="language_name" placeholder="Español" required>
+            </div>
+            <div class="item">
+                <label for="fluency">Nivel (Según el marco común europeo):<span>*</span></label>
+                <input type="text" name="fluency" id="fluency" placeholder="A1" required>
+            </div>
+
+            <div class="btn-block">
+                <button type="submit" name="submit">Añadir</button>
+                <button class="btn-siguiente">Siguiente</button>
+            </div>
+        </form>
+    </div>
+    </body>
+
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

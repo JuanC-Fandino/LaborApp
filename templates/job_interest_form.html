@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <head>
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="../static/css/form_page.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="testbox">
+        <form action="#" method="POST">
+            <div class="container-x">
+                <h1 class="centered">Interés Laboral</h1>
+            <img src="https://cc.careersportal.ie/images/careerinterests.png" alt="Logo" class="logo" style="width: 100%; height: 250px; object-fit: cover; background: rgba(0,0,0, 0.5);">
+            </div>
+            <div class="item">
+                <label for="position_name">Nombre de la posición:<span>*</span></label>
+                <input type="text" name="position_name" id="position_name" placeholder="Desarrollador de Software" required>
+            </div>
+            <div class="item">
+                <label for="company_name">Nombre de la empresa:<span>*</span></label>
+                <input type="text" name="company_name" id="company_name" placeholder="Google" required>
+            </div>
+            <div class="item">
+                <label for="salary_lower_bound">Salario mínimo:<span>*</span></label>
+                <input type="number" name="salary_lower_bound" id="salary_lower_bound" placeholder="1000000" required>
+            </div>
+
+            <div class="item">
+                <label for="salary_upper_bound">Salario máximo:<span>*</span></label>
+                <input type="number" name="salary_upper_bound" id="salary_upper_bound" placeholder="2000000" required>
+            </div>
+
+            <div class="btn-block">
+                <button type="submit">Añadir</button>
+                <button class="btn-siguiente">Siguiente</button>
+            </div>
+        </form>
+    </div>
+    </body>
+
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $(document).ready(function () {
+            $('#currently_working').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#end_date_container').hide();
+                } else {
+                    $('#end_date_container').show();
+                }
+            });
+        });
+    </script>
+{% endblock %}
