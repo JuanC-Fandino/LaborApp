@@ -5,38 +5,79 @@
         <title>{{ title }}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <link href="../static/css/form_page.css" rel="stylesheet">
+        <link href="../static/css/scheduler_page.css" rel="stylesheet">
+
     </head>
 
     <body>
-    <div class="testbox">
-        <form action="#" method="POST">
-            <div class="container-x">
-                <h1 class="centered">Interés Laboral</h1>
-            <img src="https://cc.careersportal.ie/images/careerinterests.png" alt="Logo" class="logo" style="width: 100%; height: 250px; object-fit: cover; background: rgba(0,0,0, 0.5);">
-            </div>
-            <div class="item">
-                <label for="position_name">Nombre de la posición:<span>*</span></label>
-                <input type="text" name="position_name" id="position_name" placeholder="Desarrollador de Software" required>
-            </div>
-            <div class="item">
-                <label for="company_name">Nombre de la empresa:<span>*</span></label>
-                <input type="text" name="company_name" id="company_name" placeholder="Google" required>
-            </div>
-            <div class="item">
-                <label for="salary_lower_bound">Salario mínimo:<span>*</span></label>
-                <input type="number" name="salary_lower_bound" id="salary_lower_bound" placeholder="1000000" required>
-            </div>
+    <div class="custom-design">
+        <div class="testbox">
+            <form action="#" method="POST">
+                <div class="container-x">
+                    <h1 class="centered">Interés Laboral</h1>
+                    <img src="https://cc.careersportal.ie/images/careerinterests.png" alt="Logo" class="logo"
+                         style="width: 100%; height: 250px; object-fit: cover; background: rgba(0,0,0, 0.5);">
+                </div>
+                <div class="item">
+                    <label for="position_name">Nombre de la posición:<span>*</span></label>
+                    <input type="text" name="position_name" id="position_name" placeholder="Desarrollador de Software"
+                           required>
+                </div>
+                <div class="item">
+                    <label for="company_name">Nombre de la empresa:<span>*</span></label>
+                    <input type="text" name="company_name" id="company_name" placeholder="Google" required>
+                </div>
+                <div class="item">
+                    <label for="salary_lower_bound">Salario mínimo:<span>*</span></label>
+                    <input type="number" name="salary_lower_bound" id="salary_lower_bound" placeholder="1000000"
+                           required>
+                </div>
 
-            <div class="item">
-                <label for="salary_upper_bound">Salario máximo:<span>*</span></label>
-                <input type="number" name="salary_upper_bound" id="salary_upper_bound" placeholder="2000000" required>
-            </div>
+                <div class="item">
+                    <label for="salary_upper_bound">Salario máximo:<span>*</span></label>
+                    <input type="number" name="salary_upper_bound" id="salary_upper_bound" placeholder="2000000"
+                           required>
+                </div>
 
-            <div class="btn-block">
-                <button type="submit">Añadir</button>
-                <button class="btn-siguiente">Siguiente</button>
-            </div>
-        </form>
+                <div class="btn-block">
+                    <button type="submit">Añadir</button>
+{#                    <button class="btn-siguiente">Siguiente</button>#}
+                </div>
+            </form>
+        </div>
+        <div class="tableFixHead" style="padding-top: 20px">
+            <table id="t01">
+                <thead>
+
+                <tr style="font-size: 0.8vw">
+                    <th></th>
+                    <th onclick="sortTable(this)">Empresa</th>
+                    <th onclick="sortTable(this)">Posición</th>
+                    <th onclick="sortTable(this)">Salario mínimo</th>
+                    <th onclick="sortTable(this)">Salario máximo</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for e in job_interest_list %}
+                    <tr class="edit-route interactive_row" data-target="#editModal"
+                        data-toggle="modal">
+                        <td class="center">
+                            <button class="btn" onclick="delete_entry(this)" value="{{ e.id }}">
+                                🗑️
+                            </button>
+                        </td>
+                        <td>{{ e.company_name }}</td>
+                        <td>{{ e.position_name }}</td>
+                        <td>{{ e.salary_lower_bound }}</td>
+                        <td>{{ e.salary_upper_bound }}</td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
     </div>
     </body>
 
@@ -55,5 +96,25 @@
                 }
             });
         });
+
+        function delete_entry(that) {
+            console.log(that.value);
+            // delete route with ajax (delete http request)
+            var id = $(that).val();
+            var url = '{{  url_for('main.delete_job_interest') }}';
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                data: {
+                    'id': id
+                },
+                success: function (data) {
+                    console.log(data);
+                    window.location = window.location.href.split("#")[0];
+
+                }
+            });
+        }
+
     </script>
 {% endblock %}

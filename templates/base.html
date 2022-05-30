@@ -62,7 +62,9 @@
                                                                    href="{{ url_for('main.job_interest') }}">Intereses</a>
                         </li>
                     {% elif current_user.roles[0].name == 'admin' %}
-                        <li id="candidates" class="nav-item"><a class="nav-link" href="{{ url_for('main.candidates') }}">Candidatos</a></li>
+                        <li id="candidates" class="nav-item"><a class="nav-link"
+                                                                href="{{ url_for('main.candidates') }}">Candidatos</a>
+                        </li>
                     {% endif %}
                     <li id="logout" class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Cerrar
                         Sesión</a></li>
@@ -223,6 +225,11 @@
                 }
             }
         }
+
+        function event_stopper(event) {
+            event.stopPropagation();
+        }
+
 
     </script>
 

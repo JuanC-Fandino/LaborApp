@@ -5,46 +5,84 @@
         <title>{{ title }}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <link href="../static/css/form_page.css" rel="stylesheet">
+        <link href="../static/css/scheduler_page.css" rel="stylesheet">
     </head>
 
     <body>
-    <div class="testbox">
-        <form action="#" method="POST">
+    <div class="custom-design">
+        <div class="testbox">
+            <form action="#" method="POST">
 
 
-            <div class="container-x">
-                <h1 class="centered">Experiencia Académica</h1>
-            <img src="https://www.aimsun.com/wp-content/uploads/2019/11/student.jpg" alt="Logo" class="logo" style="width: 100%; height: 250px; object-fit: cover">
-            </div>
+                <div class="container-x">
+                    <h1 class="centered">Experiencia Académica</h1>
+                    <img src="https://www.aimsun.com/wp-content/uploads/2019/11/student.jpg" alt="Logo" class="logo"
+                         style="width: 100%; height: 250px; object-fit: cover">
+                </div>
 
 
-            <div class="item">
-                <label for="degree_name">Título Obtenido:<span>*</span></label>
-                <input id="degree_name" name="degree_name" type="text" placeholder="Ingeniero de Sonido"/>
-            </div>
-            <div class="item">
-                <label for="university">Universidad:<span>*</span></label>
-                <input id="university" name="university" type="text" placeholder="Universidad de San Buenaventura"/>
-            </div>
+                <div class="item">
+                    <label for="degree_name">Título Obtenido:<span>*</span></label>
+                    <input id="degree_name" name="degree_name" type="text" placeholder="Ingeniero de Sonido"/>
+                </div>
+                <div class="item">
+                    <label for="university">Universidad:<span>*</span></label>
+                    <input id="university" name="university" type="text" placeholder="Universidad de San Buenaventura"/>
+                </div>
 
-            <div class="checkbox-inline pl-0">
-                <label for="currently_enrolled">Esta estudiando actualmente?:</label>
-                <input id="currently_enrolled" name="currently_enrolled" type="checkbox"/>
-            </div>
-
-
-            <div class="item">
-                <label id="label_yg" for="year_of_graduation">Fecha de graduación:</label>
-                <input id="year_of_graduation" name="year_of_graduation" type="date"/>
-            </div>
+                <div class="checkbox-inline pl-0">
+                    <label for="currently_enrolled">Esta estudiando actualmente?:</label>
+                    <input id="currently_enrolled" name="currently_enrolled" type="checkbox"/>
+                </div>
 
 
-            <div class="btn-block">
-                <button type="submit">Añadir</button>
-                <button class="btn-siguiente">Siguiente</button>
-            </div>
+                <div class="item">
+                    <label id="label_yg" for="year_of_graduation">Fecha de graduación:</label>
+                    <input id="year_of_graduation" name="year_of_graduation" type="date"/>
+                </div>
 
-        </form>
+
+                <div class="btn-block">
+                    <button type="submit">Añadir</button>
+                    {#                    <button class="btn-siguiente">Siguiente</button>#}
+                </div>
+
+            </form>
+        </div>
+        <div class="tableFixHead" style="padding-top: 20px">
+            <table id="t01">
+                <thead>
+
+                <tr style="font-size: 0.8vw">
+                    <th></th>
+                    <th onclick="sortTable(this)">Título Obtenido</th>
+                    <th onclick="sortTable(this)">Universidad</th>
+                    <th onclick="sortTable(this)">Actual?</th>
+                    <th onclick="sortTable(this)">Fecha de Graduación</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for e in education_list %}
+                    <tr class="edit-route interactive_row" data-target="#editModal"
+                        data-toggle="modal">
+                        <td class="center">
+                            <button class="btn" onclick="delete_entry(this)" value="{{ e.id }}">
+                                🗑️
+                            </button>
+                        </td>
+                        <td>{{ e.degree_name }}</td>
+                        <td>{{ e.university }}</td>
+                        <td>{{ e.currently_enrolled }}</td>
+                        <td>{{ e.year_of_graduation }}</td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
     </div>
     </body>
 
@@ -54,16 +92,35 @@
 {% block scripts %}
     {{ super() }}
     <script>
-    $(document).ready(function() {
-        $('#currently_enrolled').change(function() {
-            if (!$(this).is(':checked')) {
-                $('#year_of_graduation').show();
-                $('#label_yg').show();
-            } else {
-                $('#year_of_graduation').hide();
-                $('#label_yg').hide();
-            }
+        $(document).ready(function () {
+            $('#currently_enrolled').change(function () {
+                if (!$(this).is(':checked')) {
+                    $('#year_of_graduation').show();
+                    $('#label_yg').show();
+                } else {
+                    $('#year_of_graduation').hide();
+                    $('#label_yg').hide();
+                }
+            });
         });
-    });
+
+        function delete_entry(that) {
+            console.log(that.value);
+            // delete route with ajax (delete http request)
+            var id = $(that).val();
+            var url = '{{  url_for('main.delete_education') }}';
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                data: {
+                    'id': id
+                },
+                success: function (data) {
+                    console.log(data);
+                    window.location = window.location.href.split("#")[0];
+
+                }
+            });
+        }
     </script>
 {% endblock %}

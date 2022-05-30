@@ -28,6 +28,13 @@ h1 {
     padding: 20px;
 }
 
+.custom-design {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+}
+
 form {
     padding: 20px;
     border-radius: 6px;

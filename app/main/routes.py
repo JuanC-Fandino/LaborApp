@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask import render_template, request, flash
+from flask import render_template, request, flash, redirect, url_for, Response
 from flask_login import login_required, current_user
 
 from app import db
@@ -11,10 +11,14 @@ from app.main import bp
 
 ACCESS = {'admin': 2}
 
+
 @bp.route("/", methods=["GET", "POST"])
 @login_required
 def landing():
-    return render_template("education_form.html", title="Experiencia Académica")
+    if current_user.allowed(ACCESS['admin']):
+        return redirect(url_for('main.candidates'))
+    else:
+        return render_template("education_form.html", title="Experiencia Académica")
 
 
 @bp.route("/work_experience", methods=["GET", "POST"])
@@ -43,7 +47,24 @@ def work_experience():
         except:
             flash(f'Hubo un problema actualizando la experiencia laboral, intente mas tarde...!')
 
-    return render_template("work_experience_form.html", title="Experiencia Laboral")
+    work_experience_list = CandidateWorkExperience.query.filter_by(candidate_id=current_user.candidate.id).all()
+
+    return render_template("work_experience_form.html", title="Experiencia Laboral",
+                           work_experience_list=work_experience_list)
+
+
+@bp.route("/delete_work_experience", methods=["DELETE"])
+@login_required
+def delete_work_experience():
+    try:
+        candidate_work_experience = CandidateWorkExperience.query.filter_by(id=request.form['id']).first()
+        db.session.delete(candidate_work_experience)
+        db.session.commit()
+        flash(f'La experiencia laboral fue eliminada exitosamente!');
+        return Response(status=200);
+    except:
+        flash(f'Hubo un problema eliminando la experiencia laboral, intente mas tarde...!');
+        return Response(status=500);
 
 
 @bp.route("/education", methods=["GET", "POST"])
@@ -70,7 +91,23 @@ def education():
         except:
             flash(f'Hubo un problema actualizando la experiencia académica, intente mas tarde...!')
 
-    return render_template("education_form.html", title="Experiencia Académica")
+    education_list = CandidateEducation.query.filter_by(candidate_id=current_user.candidate.id).all()
+
+    return render_template("education_form.html", title="Experiencia Académica", education_list=education_list)
+
+
+@bp.route("/delete_education", methods=["DELETE"])
+@login_required
+def delete_education():
+    try:
+        candidate_education = CandidateEducation.query.filter_by(id=request.form['id']).first()
+        db.session.delete(candidate_education)
+        db.session.commit()
+        flash(f'La experiencia académica fue eliminada exitosamente!');
+        return Response(status=200);
+    except:
+        flash(f'Hubo un problema eliminando la experiencia académica, intente mas tarde...!');
+        return Response(status=500);
 
 
 @bp.route("/skills", methods=["GET", "POST"])
@@ -89,7 +126,22 @@ def skills():
         except:
             flash(f'Hubo un problema agregando la habilidad, intente mas tarde...!')
 
-    return render_template("skills_form.html", title="Competencias")
+    skill_list = CandidateSkills.query.filter_by(candidate_id=current_user.candidate.id).all()
+    return render_template("skills_form.html", title="Competencias", skill_list=skill_list)
+
+
+@bp.route("/delete_skill", methods=["DELETE"])
+@login_required
+def delete_skill():
+    try:
+        candidate_skill = CandidateSkills.query.filter_by(id=request.form['id']).first()
+        db.session.delete(candidate_skill)
+        db.session.commit()
+        flash(f'La habilidad fue eliminada exitosamente!');
+        return Response(status=200);
+    except:
+        flash(f'Hubo un problema eliminando la habilidad, intente mas tarde...!');
+        return Response(status=500);
 
 
 @bp.route("/languages", methods=["GET", "POST"])
@@ -109,7 +161,23 @@ def languages():
         except:
             flash(f'Hubo un problema agregando el idioma, intente mas tarde...!')
 
-    return render_template("languages_form.html", title="Idiomas")
+    language_list = CandidateLanguages.query.filter_by(candidate_id=current_user.candidate.id).all()
+
+    return render_template("languages_form.html", title="Idiomas", language_list=language_list)
+
+
+@bp.route("/delete_language", methods=["DELETE"])
+@login_required
+def delete_language():
+    try:
+        candidate_language = CandidateLanguages.query.filter_by(id=request.form['id']).first()
+        db.session.delete(candidate_language)
+        db.session.commit()
+        flash(f'El idioma fue eliminado exitosamente!');
+        return Response(status=200);
+    except:
+        flash(f'Hubo un problema eliminando el idioma, intente mas tarde...!');
+        return Response(status=500);
 
 
 @bp.route("/job_interest", methods=["GET", "POST"])
@@ -131,7 +199,24 @@ def job_interest():
         except:
             flash(f'Hubo un problema agregando sus preferencias de empleo, intente mas tarde...!')
 
-    return render_template("job_interest_form.html", title="Preferencias de Empleo")
+    job_interest_list = CandidateJobInterests.query.filter_by(candidate_id=current_user.candidate.id).all()
+
+    return render_template("job_interest_form.html", title="Preferencias de Empleo",
+                           job_interest_list=job_interest_list)
+
+
+@bp.route("/delete_job_interest", methods=["DELETE"])
+@login_required
+def delete_job_interest():
+    try:
+        candidate_job_interest = CandidateJobInterests.query.filter_by(id=request.form['id']).first()
+        db.session.delete(candidate_job_interest)
+        db.session.commit()
+        flash(f'Sus preferencias de empleo fueron eliminadas exitosamente!');
+        return Response(status=200);
+    except:
+        flash(f'Hubo un problema eliminando sus preferencias de empleo, intente mas tarde...!');
+        return Response(status=500);
 
 
 @bp.route("/candidates", methods=["GET", "POST"])
@@ -139,7 +224,6 @@ def job_interest():
 @requires_access_level(ACCESS['admin'])
 def candidates():
     user_list = User.query.filter(User.roles.any(name="candidate")).all()
-    # check if each user has a candidate otherwise remove from list
     user_list_copy = user_list.copy()
     for user in user_list_copy:
         if not Candidate.query.filter_by(user_id=user.id).first():
