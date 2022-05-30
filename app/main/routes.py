@@ -12,15 +12,6 @@ from app.main import bp
 ACCESS = {'admin': 2}
 
 
-@bp.route("/", methods=["GET", "POST"])
-@login_required
-def landing():
-    if current_user.allowed(ACCESS['admin']):
-        return redirect(url_for('main.candidates'))
-    else:
-        return render_template("education_form.html", title="Experiencia Académica")
-
-
 @bp.route("/work_experience", methods=["GET", "POST"])
 @login_required
 def work_experience():
