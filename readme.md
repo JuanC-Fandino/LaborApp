@@ -202,24 +202,31 @@ Se logró el desarrollo de la aplicación web para la búsqueda de empleo cumpli
 
 **Figura 4**
 Validación de credenciales - RF001
-
+Captura de Pantalla 2022-05-30 a la(s) 3.48.55 p. m.![imagen](https://user-images.githubusercontent.com/17323717/171063073-08869223-2e04-4048-8ecc-150fcecba2da.png)
  
 **Figura 5**
 Consulta de usuarios - RF002
- 
+Captura de Pantalla 2022-05-30 a la(s) 4.29.53 p. m.![imagen](https://user-images.githubusercontent.com/17323717/171063082-7a60fefc-0121-4d92-b2c8-3cb7eadabe04.png)
+
 
 **Figura 6**
 Ingreso de experiencia académica - RF003
- 
+Captura de Pantalla 2022-05-30 a la(s) 4.26.15 p. m.![imagen](https://user-images.githubusercontent.com/17323717/171063097-dcda0a69-11ea-4bc7-a185-349b48c19d22.png)
+
+
 **Figura 7**
 Ingreso de experiencia laboral (CRUD) - RF004               
- 
+Captura de Pantalla 2022-05-30 a la(s) 4.08.00 p. m.![imagen](https://user-images.githubusercontent.com/17323717/171063111-0c6bc412-1071-4574-9924-089b38cd7409.png)
+
 
 **Figura 8**
 Ingreso de lenguajes - RF005
+Captura de Pantalla 2022-05-30 a la(s) 4.09.48 p. m.![imagen](https://user-images.githubusercontent.com/17323717/171063118-74226ebd-eeaa-48dc-8d35-98309cc496ce.png)
  
 **Figura 9**
 Almacenamiento de contraseña cifrada - RNF001
+Captura de Pantalla 2022-05-30 a la(s) 3.54.00 p. m.![imagen](https://user-images.githubusercontent.com/17323717/171063129-39abd7be-0c74-4e2a-8329-f10cddb863fc.png)
+
  
 ### CONCLUSIONES
 El desarrollo de la aplicación web utilizando Flask (Python) y MySQL (RDBMS) permitió un prototipado veloz y una fácil implementación, esto según la necesidad identificada y los requerimientos funcionales detallados. De igual manera el MER propuesto inicialmente para la creación de la base de datos fue suficiente y adecuado para almacenar la información necesaria de los candidatos.
