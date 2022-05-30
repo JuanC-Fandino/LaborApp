@@ -196,3 +196,36 @@ La elección de esta metodología se hizo teniendo en cuenta la fecha de entrega
 ![Captura de Pantalla 2022-04-28 a la(s) 8 07 15 p  m](https://user-images.githubusercontent.com/17323717/165871919-97505a7f-3832-4536-92a3-5e933c5d2e30.png)
 
 ![Captura de Pantalla 2022-04-28 a la(s) 8 19 23 p  m](https://user-images.githubusercontent.com/17323717/165871922-dc526499-e1b7-451f-ad35-e558ba133ddc.png)
+
+### RESULTADOS
+Se logró el desarrollo de la aplicación web para la búsqueda de empleo cumpliendo los requerimientos funcionales y no funcionales propuestos. Posteriormente esta aplicación se alojó en DigitalOcean, el cual es un servicio de hosting online, lo que permitió su disponibilidad a través de internet. A continuación, se encuentran las distintas secciones de la aplicación que reflejan algunos de los requerimientos:
+
+**Figura 4**
+Validación de credenciales - RF001
+
+ 
+**Figura 5**
+Consulta de usuarios - RF002
+ 
+
+**Figura 6**
+Ingreso de experiencia académica - RF003
+ 
+**Figura 7**
+Ingreso de experiencia laboral (CRUD) - RF004               
+ 
+
+**Figura 8**
+Ingreso de lenguajes - RF005
+ 
+**Figura 9**
+Almacenamiento de contraseña cifrada - RNF001
+ 
+### CONCLUSIONES
+El desarrollo de la aplicación web utilizando Flask (Python) y MySQL (RDBMS) permitió un prototipado veloz y una fácil implementación, esto según la necesidad identificada y los requerimientos funcionales detallados. De igual manera el MER propuesto inicialmente para la creación de la base de datos fue suficiente y adecuado para almacenar la información necesaria de los candidatos.
+
+Por otro lado, la arquitectura utilizada (modelo-vista-controlador) mostro ser un paradigma óptimo para este tipo de desarrollo dado que se encontraron ventajas como: la separación de los datos de su representación visual, fácil manejo de errores y la capacidad de agregar múltiples representaciones de los datos.
+
+De igual manera, la metodología de desarrollo de software utilizada (Kanban) comprobó ser de bastante utilidad para la ejecución de proyectos de envergadura pequeña-mediana y especialmente útil para la continuación del proyecto en equipos unipersonales.
+
+Finalmente, es importante mencionar que el desarrollo del presente proyecto permitió aplicar el conocimiento adquirido durante el transcurso de la asignatura “Base de datos”, específicamente los conceptos relacionados a manejo de bases de datos relacionales y creación de modelos entidad-relación.
