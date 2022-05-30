@@ -48,6 +48,9 @@
                     <i class="fas fa-calendar-alt"></i>
                 </div>
 
+                {# hidden field for work experience id #}
+                <input id="edit_id" type="hidden" name="edit_id""/>
+
                 <div class="btn-block">
                     <button type="submit">Añadir</button>
                     {#                    <button class="btn-siguiente">Siguiente</button>#}
@@ -66,13 +69,13 @@
                     <th onclick="sortTable(this)">Fecha de inicio <i class="fas fa-sort fa-xs"></i></th>
                     <th onclick="sortTable(this)">Fecha de finalización <i class="fas fa-sort fa-xs"></i></th>
                     <th onclick="sortTable(this)">Actualmente trabajando <i class="fas fa-sort fa-xs"></i></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
 
                 {% for we in work_experience_list %}
-                    <tr class="edit-route interactive_row" data-target="#editModal"
-                        data-toggle="modal">
+                    <tr class="edit-route interactive_row">
                         <td class="center">
                             <button class="btn" onclick="delete_entry(this)" value="{{ we.id }}">
                                 🗑️
@@ -83,6 +86,11 @@
                         <td>{{ we.start_date }}</td>
                         <td>{{ we.end_date }}</td>
                         <td>{{ we.currently_working }}</td>
+                        <td class="center">
+                            <button class="btn" onclick="edit_entry(this)" value="{{ we.id }}">
+                                ✏️
+                            </button>
+                        </td>
                     </tr>
                 {% endfor %}
 
@@ -126,6 +134,33 @@
                 }
             });
 
+        }
+
+        function edit_entry(that) {
+            console.log(that.value);
+            var id = $(that).val();
+            var url = '{{  url_for('main.get_work_experience') }}';
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: {
+                    'id': id
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#edit_id').val(data.id);
+                    $('#company_name').val(data.company_name);
+                    $('#job_title').val(data.job_title);
+                    $('#start_date').val(data.start_date);
+                    $('#end_date').val(data.end_date);
+                    $('#currently_working').prop('checked', data.currently_working);
+                    if (data.currently_working) {
+                        $('#end_date_container').hide();
+                    } else {
+                        $('#end_date_container').show();
+                    }
+                }
+            });
         }
     </script>
 {% endblock %}
