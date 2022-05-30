@@ -4,10 +4,12 @@ from flask import render_template, request, flash
 from flask_login import login_required, current_user
 
 from app import db
+from app.decorators import requires_access_level
 from app.models import Candidate, CandidateWorkExperience, CandidateEducation, User, CandidateSkills, \
     CandidateLanguages, CandidateJobInterests
 from app.main import bp
 
+ACCESS = {'admin': 2}
 
 @bp.route("/", methods=["GET", "POST"])
 @login_required
@@ -134,6 +136,7 @@ def job_interest():
 
 @bp.route("/candidates", methods=["GET", "POST"])
 @login_required
+@requires_access_level(ACCESS['admin'])
 def candidates():
     user_list = User.query.filter(User.roles.any(name="candidate")).all()
     # check if each user has a candidate otherwise remove from list
