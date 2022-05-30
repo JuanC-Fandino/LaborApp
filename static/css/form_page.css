@@ -29,11 +29,11 @@ h1 {
 }
 
 form {
-    width: 50%;
     padding: 20px;
     border-radius: 6px;
     background: #fff;
     box-shadow: 0 0 8px #0d6987;
+    align-self: center;
 }
 
 form .form-group input {
